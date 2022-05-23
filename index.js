@@ -27,6 +27,20 @@ const managerQuestions=[
         message: 'Enter office number'
     }
 ]
+const engineerQuestions=[
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter Github username'
+    }
+]
+const internQuestions=[
+    {
+        type:'input',
+        name:'school',
+        message: 'Enter school name'
+    }
+]
 
 function promptUser(){
     return inquirer.prompt([
@@ -39,13 +53,22 @@ function promptUser(){
     ])
     .then(function(choice){
        if(choice.jobTitle==='Manager'){
-           
            addManager()
+           
+       }
+       else if (choice.jobTitle==='Engineer'){
+           addEngineer()
+           
+       }
+       else if (choice.jobTitle==='Intern'){
+        addIntern()
         
+       }
+       else {
+           console.log('Thank you!')
        }
     })
 }
-promptUser();
 
 function addManager (){
     return inquirer.prompt(basicQuestions)
@@ -53,7 +76,29 @@ function addManager (){
         return inquirer.prompt(managerQuestions)
         .then(function(officeNumber){
             console.log(userInput,officeNumber)
+            promptUser()
         })
     })
 
 }
+function addEngineer(){
+    return inquirer.prompt(basicQuestions)
+    .then(function(userInput){
+        return inquirer.prompt(engineerQuestions)
+        .then(function(github){
+            console.log(userInput,github)
+            promptUser()
+        })
+    })
+}
+function addIntern(){
+    return inquirer.prompt(basicQuestions)
+    .then(function(userInput){
+        return inquirer.prompt(internQuestions)
+        .then(function(school){
+            console.log(userInput,school)
+            promptUser()
+        })
+    })
+}
+promptUser();
