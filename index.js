@@ -2,6 +2,12 @@ const Manager=require('./lib/Manager');
 const Engineer=require('./lib/Engineer');
 const Intern=require('./lib/Intern');
 const inquirer=require('inquirer');
+const Employee = require('./lib/Employee');
+const generateHTML=require('./utils/generateHTML')
+let Employees=[]
+
+
+
 
 const basicQuestions=[
     {
@@ -66,6 +72,7 @@ function promptUser(){
        }
        else {
            console.log('Thank you!')
+           generateHTML(Employees)
        }
     })
 }
@@ -75,7 +82,9 @@ function addManager (){
     .then(function(userInput){
         return inquirer.prompt(managerQuestions)
         .then(function(officeNumber){
-            console.log(userInput,officeNumber)
+            const manager = new Manager(userInput.name, userInput.id, userInput.email, officeNumber.officeNumber);
+            Employees.push(manager)
+            //console.log(Employees)
             promptUser()
         })
     })
@@ -86,7 +95,9 @@ function addEngineer(){
     .then(function(userInput){
         return inquirer.prompt(engineerQuestions)
         .then(function(github){
-            console.log(userInput,github)
+            const engineer =new Engineer(userInput.name, userInput.id, userInput.email, github.github);
+            Employees.push(engineer)
+            //console.log(Employees)
             promptUser()
         })
     })
@@ -96,7 +107,9 @@ function addIntern(){
     .then(function(userInput){
         return inquirer.prompt(internQuestions)
         .then(function(school){
-            console.log(userInput,school)
+            const intern =new Intern(userInput.name, userInput.id, userInput.email, school.school);
+            Employees.push(intern)
+            //console.log(Employees)
             promptUser()
         })
     })
