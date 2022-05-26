@@ -110,7 +110,7 @@ function combine(team){
     <title>Document</title>
 </head>
 
-<body>
+<body class="bg-dark">
 <div class="row">
         <div class="col-lg-12">
             <div class="card" style="width: 45 rem;">
