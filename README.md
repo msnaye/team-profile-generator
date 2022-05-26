@@ -39,4 +39,5 @@ THEN I exit the application, and the HTML is generated
 - File System
 
 # Screenshot
+
 ![Image](./src/img/Screenshot.png)
