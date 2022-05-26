@@ -41,3 +41,6 @@ THEN I exit the application, and the HTML is generated
 # Screenshot
 
 ![Image](./src/img/Screenshot.png)
+
+## Contributors
+Mayra Ibarra
